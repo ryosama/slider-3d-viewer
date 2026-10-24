@@ -1,0 +1,28 @@
+name: Release
+on:
+  push:
+    tags: ['v[0-9]*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@v7
+        with:
+          go-version: stable
+          cache: false
+      - run: go test ./...
+      - run: node tests/core.test.cjs
+      - name: Générer le lecteur et les exécutables
+        run: |
+          go run . --label "Démo intégrée" --output index.html --demo-js src/demo.js .
+          go run ./tools/release -version "$GITHUB_REF_NAME"
+      - name: Préparer une release en brouillon
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/"$GITHUB_REF_NAME"/* --verify-tag --draft --title "Orbite $GITHUB_REF_NAME" --notes-file RELEASE_NOTES.md

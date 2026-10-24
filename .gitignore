@@ -1,0 +1,17 @@
+dist/
+publication/
+.cache/
+.agents/
+.codex/
+.aws/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+orbite-export
+orbite-export.exe
+/tools/export
+/tools/export.exe

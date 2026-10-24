@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Orbite — Présentations en 3D</title>
+  <link rel="stylesheet" href="src/style.css">
+  <script defer src="src/core.js"></script>
+  <script defer src="src/demo.js"></script>
+  <script defer src="src/app.js"></script>
+</head>
+<body>
+  <main>
+    <div id="viewport" aria-label="Carrousel de diapositives"><div id="scaler"><div id="world"></div></div></div>
+    <div class="navigation"><button id="previous" class="arrow" aria-label="Diapositive précédente">←</button><div class="position"><span id="counter">01 / 10</span><span id="current-title">KDE Plasma</span></div><button id="next" class="arrow" aria-label="Diapositive suivante">→</button></div>
+    <nav id="filmstrip" aria-label="Accès direct aux diapositives"></nav>
+  </main>
+  <p id="notice" role="status" aria-live="polite"></p>
+  <input id="folder" type="file" webkitdirectory multiple hidden>
+  <noscript>Activez JavaScript pour afficher la présentation.</noscript>
+</body>
+</html>
