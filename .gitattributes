@@ -1,0 +1,11 @@
+# Keep Markdown sources identical to the bundled demo on every platform.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.exe binary
+*.zip binary
+*.gz binary
